@@ -1,0 +1,209 @@
+/* =========================================================
+   FLOATING CONTACT BAR
+========================================================= */
+
+.contact-floating-bar {
+  position: fixed;
+
+  right: 22px;
+  bottom: 90px;
+
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  width: 64px;
+
+  padding: 0;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   FLOATING BUTTON
+========================================================= */
+
+.contact-floating-button {
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 8px 25px rgba(7, 26, 53, 0.14),
+    0 2px 8px rgba(7, 26, 53, 0.08);
+
+  cursor: pointer;
+
+  pointer-events: auto;
+
+  text-decoration: none;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
+
+
+.contact-floating-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 30px rgba(7, 26, 53, 0.2),
+    0 4px 10px rgba(7, 26, 53, 0.1);
+}
+
+
+.contact-floating-button:focus-visible {
+  outline: 2px solid #0867e8;
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   ICONS
+========================================================= */
+
+.contact-floating-button svg {
+  width: 30px;
+  height: 30px;
+
+  display: block;
+
+  fill: currentColor;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.contact-floating-whatsapp {
+  background: #25d366;
+  color: #ffffff;
+}
+
+.contact-floating-whatsapp:hover {
+  background: #20bd5b;
+}
+
+
+/* =========================================================
+   LIVE CHAT
+========================================================= */
+
+.contact-floating-chat {
+  color: #0867e8;
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+.contact-floating-phone {
+  color: #0349b5;
+}
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+.contact-floating-top {
+  flex-direction: column;
+
+  gap: 2px;
+
+  color: #0349b5;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .3px;
+}
+
+
+.contact-floating-top svg {
+  width: 19px;
+  height: 19px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .contact-floating-bar {
+    right: 16px;
+    bottom: 60px;
+
+    width: 40px;
+
+    gap: 8px;
+  }
+
+
+  .contact-floating-button {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 7px;
+    font-size: 15px;
+  }
+
+
+  .contact-floating-button svg {
+    width: 25px;
+    height: 25px;
+  }
+
+
+  .contact-floating-top {
+    font-size: 8px;
+  }
+
+
+  .contact-floating-top svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .app .contact-floating-bar {
+    bottom: 75px !important;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .contact-floating-button {
+    transition: none;
+  }
+
+  .contact-floating-button:hover {
+    transform: none;
+  }
+
+}
+
+.app .contact-floating-bar {
+  bottom: 50px !important;
+}

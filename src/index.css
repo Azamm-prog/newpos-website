@@ -1,0 +1,681 @@
+/* =========================================================
+   NEWPOS GLOBAL DESIGN SYSTEM
+   Blue / White / Payment Technology
+========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+  /* Brand */
+  --newpos-blue: #155eef;
+  --newpos-blue-dark: #0b3b91;
+  --newpos-blue-deep: #061b43;
+  --newpos-blue-light: #3b82f6;
+  --newpos-cyan: #0ea5e9;
+
+  /* Backgrounds */
+  --newpos-white: #ffffff;
+  --newpos-bg: #f7faff;
+  --newpos-bg-blue: #eef5ff;
+  --newpos-bg-soft: #f4f8fd;
+
+  /* Text */
+  --newpos-text: #081426;
+  --newpos-text-soft: #52627a;
+  --newpos-text-muted: #8493a8;
+
+  /* Borders */
+  --newpos-border: #dce7f5;
+  --newpos-border-light: #e9f0f8;
+
+  /* Effects */
+  --newpos-shadow:
+    0 20px 60px rgba(21, 94, 239, 0.08);
+
+  --newpos-shadow-hover:
+    0 30px 80px rgba(21, 94, 239, 0.15);
+
+  /* Layout */
+  --newpos-container: 1500px;
+  --newpos-padding: 6vw;
+
+  /* Radius */
+  --newpos-radius: 4px;
+  --newpos-radius-lg: 10px;
+
+  /* Motion */
+  --newpos-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: var(--newpos-bg);
+  color: var(--newpos-text);
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+/* =========================================================
+   ROOT APP
+========================================================= */
+
+#root {
+  min-height: 100vh;
+}
+
+
+/* =========================================================
+   GLOBAL PAGE
+========================================================= */
+
+.newpos-page {
+  position: relative;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(59, 130, 246, 0.045),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 40%,
+      rgba(14, 165, 233, 0.045),
+      transparent 30%
+    ),
+    var(--newpos-bg);
+}
+
+
+/* =========================================================
+   GLOBAL TECHNOLOGY BACKGROUND
+========================================================= */
+
+.newpos-page::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      rgba(21, 94, 239, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(21, 94, 239, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 85%
+    );
+
+  animation: newposGridMove 24s linear infinite;
+}
+
+@keyframes newposGridMove {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(70px, 70px);
+  }
+}
+
+
+/* =========================================================
+   PAGE CONTENT ABOVE BACKGROUND
+========================================================= */
+
+.newpos-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.newpos-container {
+  width: min(
+    var(--newpos-container),
+    calc(100% - 12vw)
+  );
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   SECTION SPACING
+========================================================= */
+
+.newpos-section {
+  padding: 130px 0;
+}
+
+.newpos-section-small {
+  padding: 90px 0;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.newpos-eyebrow {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 12px;
+
+  color: var(--newpos-blue);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.newpos-eyebrow::before {
+  content: "";
+
+  width: 28px;
+  height: 2px;
+
+  background: var(--newpos-blue);
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 0 10px rgba(21, 94, 239, 0.25);
+}
+
+
+/* =========================================================
+   GLOBAL HEADINGS
+========================================================= */
+
+.newpos-heading {
+  margin: 0;
+
+  color: var(--newpos-text);
+
+  font-size: clamp(45px, 5vw, 76px);
+  font-weight: 550;
+
+  line-height: 0.95;
+  letter-spacing: -4px;
+}
+
+.newpos-heading span {
+  color: var(--newpos-blue);
+}
+
+
+/* =========================================================
+   BODY TEXT
+========================================================= */
+
+.newpos-description {
+  max-width: 600px;
+
+  color: var(--newpos-text-soft);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   BLUE BUTTON
+========================================================= */
+
+.newpos-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  min-height: 48px;
+
+  padding: 0 24px;
+
+  border: 1px solid var(--newpos-blue);
+
+  border-radius: var(--newpos-radius);
+
+  background: var(--newpos-blue);
+  color: #fff;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 25px rgba(21, 94, 239, 0.15);
+
+  transition:
+    transform 0.3s var(--newpos-ease),
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.newpos-button:hover {
+  transform: translateY(-3px);
+
+  background: var(--newpos-blue-dark);
+
+  box-shadow:
+    0 18px 35px rgba(21, 94, 239, 0.22);
+}
+
+.newpos-button b {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   OUTLINE BUTTON
+========================================================= */
+
+.newpos-button-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  min-height: 48px;
+
+  padding: 0 24px;
+
+  border: 1px solid var(--newpos-border);
+
+  border-radius: var(--newpos-radius);
+
+  background: rgba(255,255,255,0.8);
+  color: var(--newpos-text);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s var(--newpos-ease),
+    border-color 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+.newpos-button-outline:hover {
+  transform: translateY(-3px);
+
+  border-color: #9dbef4;
+
+  background: #fff;
+
+  color: var(--newpos-blue);
+}
+
+
+/* =========================================================
+   TECHNOLOGY CARD
+========================================================= */
+
+.newpos-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.98),
+      rgba(248,251,255,0.98)
+    );
+
+  border: 1px solid var(--newpos-border);
+
+  border-radius: var(--newpos-radius);
+
+  box-shadow: var(--newpos-shadow);
+
+  transition:
+    transform 0.4s var(--newpos-ease),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.newpos-card:hover {
+  transform: translateY(-7px);
+
+  border-color: #b9d0f2;
+
+  box-shadow: var(--newpos-shadow-hover);
+}
+
+
+/* =========================================================
+   BLUE GLOW
+========================================================= */
+
+.newpos-blue-glow {
+  position: relative;
+}
+
+.newpos-blue-glow::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(59,130,246,0.16),
+      transparent 70%
+    );
+
+  filter: blur(10px);
+
+  pointer-events: none;
+
+  animation: newposGlow 8s ease-in-out infinite;
+}
+
+@keyframes newposGlow {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(20px, -15px) scale(1.08);
+  }
+}
+
+
+/* =========================================================
+   ORBIT
+========================================================= */
+
+.newpos-orbit {
+  position: absolute;
+
+  border: 1px solid rgba(37, 99, 235, 0.14);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  animation:
+    newposOrbit 12s ease-in-out infinite;
+}
+
+@keyframes newposOrbit {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(7deg) scale(1.025);
+  }
+}
+
+
+/* =========================================================
+   BLUE DOT
+========================================================= */
+
+.newpos-dot {
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--newpos-blue);
+
+  box-shadow:
+    0 0 0 5px rgba(37,99,235,0.08),
+    0 0 25px rgba(37,99,235,0.3);
+
+  animation:
+    newposDotPulse 3s ease-in-out infinite;
+}
+
+@keyframes newposDotPulse {
+  0%,
+  100% {
+    transform: scale(1);
+
+    opacity: 0.65;
+  }
+
+  50% {
+    transform: scale(1.5);
+
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.newpos-divider {
+  width: 100%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--newpos-border),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+  background: rgba(37, 99, 235, 0.18);
+
+  color: var(--newpos-text);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5fa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b8cbea;
+
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7fa2db;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  :root {
+    --newpos-padding: 5vw;
+  }
+
+  .newpos-section {
+    padding: 100px 0;
+  }
+
+  .newpos-container {
+    width: calc(100% - 10vw);
+  }
+}
+
+
+@media (max-width: 650px) {
+
+  :root {
+    --newpos-padding: 22px;
+  }
+
+  .newpos-container {
+    width: calc(100% - 44px);
+  }
+
+  .newpos-section {
+    padding: 75px 0;
+  }
+
+  .newpos-section-small {
+    padding: 60px 0;
+  }
+
+  .newpos-heading {
+    font-size: clamp(38px, 10vw, 50px);
+
+    letter-spacing: -2.5px;
+  }
+
+  .newpos-description {
+    font-size: 14px;
+  }
+
+  .newpos-button,
+  .newpos-button-outline {
+    min-height: 46px;
+
+    padding: 0 20px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .newpos-page::before,
+  .newpos-blue-glow::before,
+  .newpos-orbit,
+  .newpos-dot {
+    animation: none;
+  }
+}
